@@ -53,5 +53,5 @@ jobs:
         shell: pwsh
       - name: publish to nuget
         run: |
-            dotnet nuget push "./src/${{ matrix.proj }}/out/*.nupkg" -k ${{ secrets.Nuget_tristan }} -s https://api.nuget.org/v3/index.json
+            Get-Item "./src/${{ matrix.proj }}/out/*.nupkg" | % { dotnet nuget push $_ -k ${{ secrets.Nuget_tristan }} -s https://api.nuget.org/v3/index.json }
         shell: pwsh
