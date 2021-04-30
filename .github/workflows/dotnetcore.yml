@@ -35,11 +35,11 @@ jobs:
           dotnet-version: 2.1.809
       - name: dotnet clean
         run: |  
-            cd "${{ matrix.proj }}"
+            cd "./src/${{ matrix.proj }}"
             dotnet clean
       - name: dotnet build
         run: |
-            cd "${{ matrix.proj }}"
+            cd "./src/${{ matrix.proj }}"
             $branch = @($env:GITHUB_REF -split "/")[-1]
             if($branch -eq "master")
             {
@@ -53,5 +53,5 @@ jobs:
         shell: pwsh
       - name: publish to nuget
         run: |
-            dotnet nuget push "./${{ matrix.proj }}/out/*.nupkg" -k ${{ secrets.Nuget_tristan }} -s https://api.nuget.org/v3/index.json
+            dotnet nuget push "./src/${{ matrix.proj }}/out/*.nupkg" -k ${{ secrets.Nuget_tristan }} -s https://api.nuget.org/v3/index.json
         shell: pwsh
