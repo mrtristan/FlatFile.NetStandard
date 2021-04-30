@@ -9,6 +9,9 @@
     <VersionSuffix>$(VersionSuffix)</VersionSuffix>
     <Version>0.2.51</Version>
     <Version Condition=" '$(VersionSuffix)' != '' ">$(Version)-$(VersionSuffix)</Version>
+
+    <PackageId>FlatFile.Core.Attributes.NetStandard</PackageId>
+    <PackageProjectUrl>https://github.com/mrtristan/FlatFile.NetStandard</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>
